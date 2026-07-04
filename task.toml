@@ -1,0 +1,24 @@
+artifacts = ["report.json"]
+
+[task]
+name = "dynamo/log-report"
+description = "Parse an access log and generate a JSON report summarizing requests, status codes, and traffic statistics."
+
+[verifier]
+timeout_sec = 30
+
+[metadata]
+category = "software_engineering"
+subcategory = "log_processing"
+task_objective = "Parse an access log into a JSON summary report"
+artifact_type = "json_report"
+expert_time_estimate_hours = 1
+model_tested = "gpt-5"
+agent_tested = "harbor"
+difficulty_explanation = "The original task had multiple structural and verification defects requiring debugging across configuration, environment, and tests."
+solution_explanation = "The solution parses access.log, computes request counts, status summaries, and writes report.json in the expected structure."
+verification_explanation = "The verifier validates the contents of report.json, checks correctness of values, and writes reward.txt and ctrf.json."
+
+[environment]
+allow_internet = false
+mcp_servers = []
